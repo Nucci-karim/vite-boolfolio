@@ -9,21 +9,30 @@ export default{
   },
   data(){
     return{
-      store
+      store,
+      post:[]
     }
   },
-  created(){
-
+  mounted(){
+    this.getPosts();
   },
   methods: {
-
+    getPosts(){
+      axios.get(`http://127.0.0.1:8000/api/posts`)
+    .then(res => {
+        this.post = res.data.posts;
+      })
+    }
   }
 }
 </script>
 
 <template>
   <div id="tutto">
-    
+    <h1>Ciao Mondo</h1>
+    <ul>
+      <li></li>
+    </ul>
   </div>
   
   
